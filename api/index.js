@@ -6,7 +6,7 @@ export default function handler(req, res) {
   const urlPath = decodeURIComponent(req.query.path || "");
   const fullPath = path.join(BASE, urlPath);
 
-  // Security: block traversal
+  // Security
   if (!fullPath.startsWith(BASE)) {
     return res.status(403).send("Forbidden");
   }
@@ -21,13 +21,12 @@ export default function handler(req, res) {
   if (stat.isDirectory()) {
     const indexFile = path.join(fullPath, "index.html");
 
-    // 🔥 AUTO-PREVIEW index.html
+    // 🔥 REDIRECT instead of serving
     if (fs.existsSync(indexFile)) {
-      res.setHeader("Content-Type", "text/html");
-      return res.send(fs.readFileSync(indexFile));
+      return res.redirect(`/?path=${path.posix.join(urlPath, "index.html")}`);
     }
 
-    // Otherwise list directory
+    // List directory if no index.html
     const items = fs.readdirSync(fullPath, { withFileTypes: true });
 
     const list = items.map(i => `
@@ -62,16 +61,17 @@ export default function handler(req, res) {
     `);
   }
 
-  // ✅ FILE → let browser render it
+  // ✅ FILE (serve properly)
   const ext = path.extname(fullPath);
-  const typeMap = {
+  const types = {
     ".html": "text/html",
     ".css": "text/css",
     ".js": "application/javascript",
     ".png": "image/png",
-    ".jpg": "image/jpeg"
+    ".jpg": "image/jpeg",
+    ".svg": "image/svg+xml"
   };
 
-  res.setHeader("Content-Type", typeMap[ext] || "application/octet-stream");
+  res.setHeader("Content-Type", types[ext] || "application/octet-stream");
   res.send(fs.readFileSync(fullPath));
 }
