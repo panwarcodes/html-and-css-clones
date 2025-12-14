@@ -24,6 +24,7 @@ header {
 
 .header-logo {
   font-size: x-large;
+  color: white;
 }
 
 header nav {
@@ -32,33 +33,124 @@ header nav {
   font-size: large;
 }
 
-header nav span:hover, .header-logo:hover{
+header nav span:hover,
+.header-logo:hover {
   color: #FE3B15;
   cursor: pointer;
 }
 
-.hero-section{
+.hero-section {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.hero-section img{
+.hero-section img {
   width: 200px;
+  filter: drop-shadow(15px 10px 10px rgba(0, 0, 0, 0.5));
 }
 
-.hero-p1, .hero-p2{
+.hero-p1,
+.hero-p2 {
   padding: 5px;
 }
 
-.hero-p1{
+.hero-p1 {
   color: #FE3B15;
   font-size: 4rem;
   font-style: italic;
 }
 
-.hero-p2{
+.hero-p2 {
   color: white;
   font-size: 1.5rem;
 }
+
+.hr hr {
+  margin-top: 80px;
+  border: none;
+  height: 2px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #3e586e;
+}
+
+.categories {
+  display: flex;
+  padding-top: 10px;
+  margin-bottom: 60px;
+  justify-content: center;
+  color: #b7b7b7;
+  gap: 25px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.categories span:hover {
+  color: white;
+}
+
+.blog-container {
+  width: 100%;
+  padding-left: 130px;
+  padding-right: 130px;
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+  gap: 20px;
+}
+
+.blog-style {
+  height: 350px;
+  width: 300px;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+.blog-image,
+.blog-image img {
+  height: 155px;
+  width: 270px;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 25px;
+}
+
+.blog-text-content p {
+  padding: 6px;
+  font-size: 0.9rem;
+}
+
+footer {
+  margin-top: 200px;
+  margin-bottom: 120px;
+}
+
+.footer-creds {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.gap{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer-creds a{
+  color: white;
+  text-decoration: none;
+  background-color: rgb(44, 151, 194);
+  border-radius: 5px;
+  padding: 6px;
+}
+
+.footer-creds a:hover{
+  background-color: rgb(0, 131, 183);
+}
+
