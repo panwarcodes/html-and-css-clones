@@ -44,22 +44,66 @@ export default function handler(req, res) {
 <head>
   <title>Index of /${urlPath}</title>
   <style>
-    body { font-family: monospace; padding: 30px; }
-    li { margin: 6px 0; }
-    a { text-decoration: none; }
+    body {
+      font-family: monospace;
+      padding: 30px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .footer-creds {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+
+      color: white;
+      background-color: rgb(44, 151, 194);
+      border-radius: 6px;
+      padding: 6px 10px;
+
+      font-size: 13px;
+      opacity: 0.85;
+      z-index: 999;
+
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: opacity 0.2s ease, background-color 0.2s ease;
+    }
+
+    .footer-creds:hover {
+      opacity: 1;
+      background-color: rgb(0, 131, 183);
+    }
   </style>
 </head>
 <body>
 
-<h2>Index of /${urlPath}</h2>
-<ul>
-  ${urlPath ? `<li><a href="/?path=${urlPath.split("/").slice(0,-1).join("/")}">⬅ Back</a></li>` : ""}
-  ${list}
-</ul>
+  <h2>Index of /${urlPath}</h2>
+
+  <ul>
+    ${urlPath ? `<li><a href="/?path=${urlPath.split("/").slice(0, -1).join("/")}">⬅ Back</a></li>` : ""}
+    ${list}
+  </ul>
+
+  <a
+    href="https://github.com/panwarcodes"
+    class="footer-creds"
+    target="_blank"
+    rel="noopener"
+  >
+    Coded by panwarcodes
+  </a>
 
 </body>
 </html>
-    `);
+`);
+
   }
 
   // ✅ FILE → let browser render it
