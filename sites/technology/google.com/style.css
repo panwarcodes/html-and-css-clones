@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Google Sans', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: rgb(31, 31, 31);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 0.81rem;
+}
+
+.right-header1 {
+    display: flex;
+    align-items: center;
+}
+
+.right-header2 {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding-left: 15px;
+}
+
+.asgi {
+    display: flex;
+    gap: 20px;
+    padding-left: 10px;
+    padding-right: 5px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+svg {
+    filter: invert(100%);
+}
+
+.hero {
+    display: flex;
+    color: white;
+    justify-content: center;
+    filter: invert(100%);
+    align-items: center;
+    margin-top: 2.5rem;
+}
+
+.search-main {
+    padding-top: 1.7rem;
+    padding-bottom: 2.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-box {
+    background-color: #464646;
+    height: 3.35rem;
+    width: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5rem;
+    padding: 0.7rem;
+}
+
+.plus {
+    margin-right: 0.5rem;
+}
+
+.mic {
+    margin-left: 0.5rem;
+}
+
+.search-input {
+    height: 3.35rem;
+    width: 100%;
+    background-color: #464646;
+    border-color: transparent;
+    color: white;
+    font-size: large;
+}
+
+
+
+.search-input:focus {
+    outline-width: 0;
+}
+
+.search-box div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+
+.search-svg {
+    filter: invert(78%);
+    border-radius: 50%;
+}
+
+.search-svg:hover {
+    background-color: #fff;
+}
+
+.ai-mode {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    padding: 0.5rem;
+    height: 2.5rem;
+    width: 6.5rem;
+    border-radius: 5rem;
+    border: 0.5px solid rgb(175, 175, 175);
+    background-color: #464646;
+    color: rgb(255, 255, 255);
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.belowsearch-items {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.belowsearch-items button {
+    height: 2rem;
+    width: 8rem;
+    border-radius: 0.5rem;
+    background-color: #3f3f3f;
+    color: rgb(232, 232, 232);
+    border: 0.3px solid #3f3f3f;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.belowsearch-items button:hover {
+    border: 0.01px solid rgb(132, 132, 132);
+}
+
+.belowbutton-text {
+    height: 30vh;
+    color: #e1e1e1;
+    padding: 1rem;
+}
+
+.bbt {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+
+}
+
+svg {
+    cursor: pointer;
+}
+
+.linkblue {
+    color: skyblue;
+}
+
+footer {
+    background-color: rgb(22, 22, 22);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+
+}
+
+main {
+    flex: 1;
+    /* pushes footer to bottom */
+}
+
+footer {
+    height: 100px;
+    font-size: 0.9rem;
+    /* or min-height */
+
+}
+
+.country {
+    height: 50px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding-left: 2rem;
+}
+
+.quicklinks {
+    color: white;
+    display: flex;
+    padding: 2rem;
+    justify-content: space-between;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.left-right {
+    display: flex;
+    gap: 2rem;
+}
+
+hr {
+    border: none;
+    height: 2px;
+    background-color: rgb(52, 52, 52);
+}
