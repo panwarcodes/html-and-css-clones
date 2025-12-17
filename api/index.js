@@ -40,56 +40,157 @@ export default function handler(req, res) {
 
     return res.send(`
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Index of /${urlPath}</title>
+
   <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --accent: #38bdf8;
+      --accent-hover: #0ea5e9;
+      --border: rgba(255, 255, 255, 0.08);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: monospace;
-      padding: 30px;
+      margin: 0;
+      min-height: 100vh;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: radial-gradient(1200px 600px at top, #020617, var(--bg));
+      color: var(--text);
+
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 24px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 900px;
+      background: linear-gradient(180deg, #020617, var(--card));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px 24px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 600;
+      color: #f8fafc;
+      word-break: break-all;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
     }
 
     li {
-      margin: 6px 0;
+      border-radius: 10px;
+      transition: background 0.15s ease, transform 0.05s ease;
+    }
+
+    li:hover {
+      background: rgba(255, 255, 255, 0.04);
     }
 
     a {
+      display: block;
+      padding: 10px 12px;
       text-decoration: none;
-      color: inherit;
+      color: var(--text);
+      word-break: break-all;
     }
 
+    a:hover {
+      color: var(--accent);
+    }
+
+    .back a {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .back a:hover {
+      color: var(--accent-hover);
+    }
+
+    /* Floating credit badge */
     .footer-creds {
       position: fixed;
-      top: 16px;
+      bottom: 16px;
       right: 16px;
 
-      color: white;
-      background-color: rgb(44, 151, 194);
-      border-radius: 6px;
-      padding: 6px 10px;
-
+      background: linear-gradient(135deg, #0284c7, #38bdf8);
+      color: #020617;
+      padding: 8px 12px;
+      border-radius: 999px;
       font-size: 13px;
-      opacity: 0.85;
-      z-index: 999;
+      font-weight: 600;
+      text-decoration: none;
 
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: opacity 0.2s ease, background-color 0.2s ease;
+      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.35);
+      opacity: 0.9;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+      z-index: 999;
     }
 
     .footer-creds:hover {
       opacity: 1;
-      background-color: rgb(0, 131, 183);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile tweaks */
+    @media (max-width: 480px) {
+      body {
+        padding: 14px;
+      }
+
+      .container {
+        padding: 16px;
+      }
+
+      .footer-creds {
+        font-size: 12px;
+        padding: 7px 10px;
+      }
     }
   </style>
 </head>
+
 <body>
+  <main class="container">
+    <h2>Index of /${urlPath}</h2>
 
-  <h2>Index of /${urlPath}</h2>
-
-  <ul>
-    ${urlPath ? `<li><a href="/?path=${urlPath.split("/").slice(0, -1).join("/")}">⬅ Back</a></li>` : ""}
-    ${list}
-  </ul>
+    <ul>
+      ${
+        urlPath
+          ? `<li class="back">
+               <a href="/?path=${urlPath.split("/").slice(0, -1).join("/")}">
+                 ⬅ Back
+               </a>
+             </li>`
+          : ""
+      }
+      ${list}
+    </ul>
+  </main>
 
   <a
     href="https://github.com/panwarcodes"
@@ -99,7 +200,6 @@ export default function handler(req, res) {
   >
     Coded by panwarcodes
   </a>
-
 </body>
 </html>
 `);
