@@ -190,7 +190,7 @@ export default function handler(req, res) {
       }
       ${list}
     </ul>
-  </main>
+  </main> 
 
   <a
     href="https://github.com/panwarcodes"
