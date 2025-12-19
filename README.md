@@ -10,6 +10,21 @@ No frameworks. No JavaScript. Just core web basics.
 All clones are available here:  
 👉 **[View All Clones](https://html-and-css-clones.vercel.app)**
 
+## Disclaimer
+
+All UI designs in this repository are recreations of existing websites and
+interfaces, built strictly for educational and practice purposes.
+
+This project focuses on improving HTML & CSS skills such as layout,
+responsiveness, and clean structure. No ownership of original designs
+is claimed.
+
+## Notes
+
+Some clones are currently optimized for desktop view.
+Mobile responsiveness is a work in progress and will be improved over time.
+
+
 ## Why this repo exists
 
 I’m using this space to:
